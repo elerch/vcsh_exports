@@ -1,0 +1,30 @@
+version: 0.2
+
+env:
+  parameter-store:
+     deploykey: "/github/ungoogled-chromium/deploy_key"
+phases:
+  pre_build:
+    commands:
+      - 'echo Got version $VERSION'
+      - 'echo Got image $IMAGE'
+      - 'export UPPER_IMAGE=${IMAGE^^}'
+      - 'export UPPER_IMAGE=${UPPER_IMAGE//-/_}'
+      - 'echo Uppercased is $UPPER_IMAGE'
+      - 'echo -----BEGIN OPENSSH PRIVATE KEY----- > ~/.ssh/id_ed25519'
+      - 'echo "$deploykey" >> ~/.ssh/id_ed25519'
+      - 'echo -----END OPENSSH PRIVATE KEY----- >> ~/.ssh/id_ed25519'
+      - 'chmod 600 ~/.ssh/id_ed25519'
+        #- export GIT_SSH_COMMAND="ssh -i $HOME/.ssh/id_ed25519 -o IdentitiesOnly=yes"
+      - git config --global user.email versions@lerch.org
+      - git config --global user.name "Update version bot"
+      - git checkout master
+      - git remote add ssh git@github.com:elerch/vcsh_exports.git
+      - '[ -n "$VERSION" ]'
+  build:
+    commands:
+      - sed -i "s/^export ${UPPER_IMAGE}_VERSION=.\+/export ${UPPER_IMAGE}_VERSION=${VERSION}/g" .exports
+      - git commit -am "Change version of $IMAGE to $VERSION"
+  post_build:
+    commands:
+      - git push --set-upstream ssh master
