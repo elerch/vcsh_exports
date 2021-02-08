@@ -2,6 +2,9 @@
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
+# Allow dash shell to pick up .commonrc (and aliases)
+export ENV="$HOME/.profile"
+
 # QT5
 export QT_STYLE_OVERRIDE="Adwaita-Dark"
 
