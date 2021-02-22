@@ -18,7 +18,7 @@ export AWS_SESSION_TOKEN_TTL=24h
 export AWS_FEDERATION_TOKEN_TTL=24h
 
 # Ungoogled chromium
-export UNGOOGLED_CHROMIUM_VERSION=88.0.4324.150-1 # procfrom:https://download.opensuse.org/repositories/home:/ungoogled_chromium/Debian_Buster/amd64
+export UNGOOGLED_CHROMIUM_VERSION=88.0.4324.182-1 # procfrom:https://download.opensuse.org/repositories/home:/ungoogled_chromium/Debian_Buster/amd64
 
 # Libreoffice
 export LIBREOFFICE_VERSION=6.1.5
