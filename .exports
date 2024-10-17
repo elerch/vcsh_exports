@@ -15,6 +15,3 @@ export DOTNET_CLI_TELEMETRY_OPTOUT=1 # Really? We now have to do this???
 export AWS_VAULT_BACKEND=secret-service
 export AWS_SESSION_TOKEN_TTL=24h
 export AWS_FEDERATION_TOKEN_TTL=24h
-
-# Ungoogled chromium
-export UNGOOGLED_CHROMIUM_VERSION=90.0.4430.212-1 # procfrom:https://download.opensuse.org/repositories/home:/ungoogled_chromium/Debian_Buster/amd64
