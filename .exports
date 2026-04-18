@@ -14,6 +14,9 @@ export AWS_VAULT_BACKEND=secret-service
 export AWS_SESSION_TOKEN_TTL=24h
 export AWS_FEDERATION_TOKEN_TTL=24h
 
+# zFin
+export ZFIN_HOME="$HOME/finance"
+
 # Really? We now have to do this???
 #########################################################################
 # TELEMETRY OPT-OUT WALL OF SHAME
