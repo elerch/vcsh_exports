@@ -16,6 +16,7 @@ export AWS_FEDERATION_TOKEN_TTL=24h
 
 # zFin
 export ZFIN_HOME="$HOME/finance"
+export ZFIN_AUDIT_FILES="$(xdg-user-dir DOWNLOAD)"
 
 # Really? We now have to do this???
 #########################################################################
